@@ -2,13 +2,12 @@
 
 //ТОЧКА ВХОДА INDEX.PHP
 require __DIR__ . '/autoload.php';
-echo 'Hello world!';
-$article = \App\Models\Article::findAll();
-$categories= \App\Models\Categories::findAll();
-$authors = \App\Models\Authors::findAll();
-var_dump($article);
+
+$article = \App\Models\Article::findAll([':id' => '1']);
+$categories= \App\Models\Categories::findAll([':id' => '2']);
+$authors = \App\Models\Authors::findAll([':id' => '1']);
 var_dump($categories);
-var_dump($authors);
+
 
 
 
