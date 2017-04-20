@@ -13,11 +13,19 @@ abstract class Model
 {
     const TABLE = '';
 
-    static function findAll()
+    static function findAll($params = [])
     {
         $db = new Db();
-        return $db->query('SELECT * FROM ' . static::TABLE,
-            static::class //static::class превратится в имя класса где мы вызовем этот метод!!!
+        return $db->query('SELECT * FROM ' . static::TABLE . ' WHERE id = :id',
+            static::class,$params //static::class превратится в имя класса где мы вызовем этот метод!!!
         );
     }
+
+    static function findById($id){
+        $db = new Db();
+        return $db->query('SELECT * FROM ' . static::TABLE . " WHERE id = '$id'",
+            static::class
+        );
+    }
+
 }
